@@ -1,12 +1,68 @@
-<div id="<%= dom_id conference %>">
-  <p>
-    <strong>Title:</strong>
-    <%= conference.title %>
-  </p>
+<div id="<%#= dom_id conference %>">
+  <br>
+  <% tempo = 0 %>
+  <% hora = 9 %>
+  <% min = 0 %>
 
-  <p>
-    <strong>Time:</strong>
-    <%= conference.time %>
-  </p>
+  <% letras = ("A".."Z").to_a %>
+  <% n = 0 %>
 
+  <table class="table  table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col"><strong>Horario</strong></th>
+        <th scope="col"><strong>Assunto</strong></th>
+        <th scope="col"><strong>Duração</strong></th>
+        <th scope="col"><strong>Ação:</strong></th>
+      </tr>
+      <tr>
+        <td colspan="4" class="table-primary"><%= "Track #{letras[n]}:" %></td>
+      </tr>
+    </thead>
+
+
+    <% conferences.each do |conference| %>
+      <% conference.time == "lightning" ? tempo = 5 : tempo = (conference.time[0..1]).to_i %>
+
+
+      <% if min >= 60 %>
+        <% min = min % 60 %>
+        <% hora += 1 %>
+      <% end %>
+
+      <tbody>
+        <tr>
+          <% if (hora == 12) %>
+            <td class="table-warning"><%= "12:00" %></td>
+            <td class="table-warning"><%= "Almoço" %></td>
+            <% hora = 13 %>
+            <% min = 0 %>
+          <% elsif hora >= 16 %>
+            <td class="table-warning"><%= "17:00" %></td>
+            <td class="table-warning"><%= "Evento de Networking" %></td>
+            <tr>
+              <td colspan="4" class="table-primary"><%= "Track #{letras[n += 1]}:" %></td>
+            </tr>
+            <% hora = 9 %>
+            <% min = 0 %>
+          <% end %>
+        </tr>
+
+        <tr>
+          <td><%= "#{hora.to_s.rjust(2,"0")}:#{min.to_s.rjust(2,"0")}" %></td>
+          <td><%= conference.title %></td>
+          <% if conference.time == "lightning" %>
+            <td><%= "5min" %></td>
+          <% else %>
+            <td><%= conference.time %></td>
+          <% end %>
+          <td class="text-center"><%= link_to "Editar", edit_conference_path(conference), class: "link-warning" %> | <%= link_to "excluir", conference, method: :delete, class: "link-danger" %></td>
+
+          <% min += tempo %>
+        </tr>
+      </tbody>
+
+    <% end %>
+  </table>
+  <br>
 </div>

@@ -1,14 +1,10 @@
-<p style="color: green"><%= notice %></p>
+<div class="text-center">
+  <p style="color: green"><%= notice %></p>
 
-<h1>Conferences</h1>
-
-<div id="conferences">
-  <% @conferences.each do |conference| %>
-    <%= render conference %>
-    <p>
-      <%= link_to "Show this conference", conference %>
-    </p>
-  <% end %>
+  <h1>Horário das Palestras</h1>
 </div>
 
-<%= link_to "New conference", new_conference_path %>
+<div id="conferences" class="container">
+  <%= link_to "Adicionar palestra", new_conference_path, class: "link-success" %><br>
+  <%= render "conference", conferences: @conferences %>
+</div>

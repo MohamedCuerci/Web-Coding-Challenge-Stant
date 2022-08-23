@@ -1,10 +1,10 @@
-<p style="color: green"><%= notice %></p>
+<p style="color: green" class="text-center"><%= notice %></p>
 
-<%= render @conference %>
+<%#= render @conference %>
 
-<div>
-  <%= link_to "Edit this conference", edit_conference_path(@conference) %> |
-  <%= link_to "Back to conferences", conferences_path %>
+<div class="text-center">
+  <%= link_to "Editar essa Palestra", edit_conference_path(@conference), class: "link-warning" %> |
+  <%= link_to "Voltar para conferência", conferences_path, class: "link-success" %>
 
-  <%= button_to "Destroy this conference", @conference, method: :delete %>
+  <%= button_to "Deletar essa palestra", @conference, method: :delete, class: "btn btn-danger" %>
 </div>
