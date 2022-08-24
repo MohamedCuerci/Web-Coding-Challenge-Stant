@@ -30,10 +30,10 @@ gem "bootstrap"
 ## observações
 1- Tive alguns problemas pessoas para resolver então não tive tempo para fazer o melhor projeto possível.<br>
 2- Criei um endpoint pra cadastrar uma palesta e uma task para subir um arquivo com os horarios da conferencia. <br>
-3- Como a modelagem de dados ficou em aberto, prefiri tratar como um arquivo csv, adicinei um header para facilitiar a importação por meio de hash, oq melhora o tempo em grandes arquivos.<br>
-4- Realizo uma filtragem dos dados pelo model e tambem na hora de importar o arquivo usando metodo uniq!<br>
-5- Deixar a lógica do horario na view deixou ela bem poluida, porém não tive tempo pra melhorar isso.<br>
-6- Eu iria criar um projeto no modo api do rails porém como preciso de um front-end básico, fiz da maneira "padrão", entretanto, tenho outro projeto no modo api que é mais completo com versionamento e query pela url que pode demostrar melhor como lido com uma api link: https://github.com/MohamedCuerci/desafio-backend-challenger
+3- Como a modelagem de dados ficou em aberto, preferi tratar como um arquivo csv, adicionei um header para facilitiar a importação por meio de hash, oq melhora o tempo em grandes arquivos.<br>
+4- Realizo uma filtragem dos dados pelo model e tambem na hora de importar o arquivo usando metodo .uniq!<br>
+5- Deixar a lógica do horario na view, deixou ela bem poluida, porém não tive tempo pra melhorar isso.<br>
+6- Eu iria criar um projeto no modo api do rails porém como preciso de um front-end básico, fiz da maneira "padrão", entretanto, tenho outro projeto no modo api que é mais completo com versionamento, query pela url e etc que pode demostrar melhor como lido com uma api link: https://github.com/MohamedCuerci/desafio-backend-challenger
 
 ### Consideração pessoal
 Curti demais fazer esse projeto, sinto que aprendiz bastante mesmo sendo um projeto simples.
