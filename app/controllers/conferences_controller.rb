@@ -1,5 +1,5 @@
 class ConferencesController < ApplicationController
-  before_action :set_conference, only: %i[ show edit update destroy ]
+  before_action :set_conference, only: %i[show edit update destroy]
 
   # GET /conferences or /conferences.json
   def index
@@ -7,8 +7,7 @@ class ConferencesController < ApplicationController
   end
 
   # GET /conferences/1 or /conferences/1.json
-  def show
-  end
+  def show; end
 
   # GET /conferences/new
   def new
@@ -16,8 +15,7 @@ class ConferencesController < ApplicationController
   end
 
   # GET /conferences/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /conferences or /conferences.json
   def create
@@ -33,6 +31,29 @@ class ConferencesController < ApplicationController
       end
     end
   end
+
+# Não consegui desenvolver a logica pra implementar esse endpoint
+# porem se eu comentar o create de cima e descomentar esse, funciona.
+
+# def import ou create
+#   begin
+#     @items = []
+#     @file = "./tmp/conference.csv"
+#     CSV.foreach(@file, headers: true) do |row|
+#       @items << row.to_h
+#     end
+
+#     @items.uniq!
+
+#     Conference.transaction do
+#       Conference.create(@items)
+#     end
+
+#      render json: {"message": "Catalogue Saved in database"}, status: :created
+#    rescue
+#      render json: @catalogue.errors, status: :unprocessable_entity
+#    end
+#  end
 
   # PATCH/PUT /conferences/1 or /conferences/1.json
   def update
@@ -58,6 +79,7 @@ class ConferencesController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_conference
       @conference = Conference.find(params[:id])

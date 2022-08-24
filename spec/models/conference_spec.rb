@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Conference, type: :model do
   before(:each) do
     @conference = Conference.create(title: Faker::Lorem.sentence(word_count: 3), time: "#{Faker::Number.between(from: 10, to: 60)}min")
-    #FactoryBot.create(:conference)
+    # FactoryBot.create(:conference)
   end
 
   describe "testando CRUD" do
@@ -17,7 +17,7 @@ RSpec.describe Conference, type: :model do
 
     it 'checks that a conference can be updated' do
       @conference.update(title: "outro tiulo para teste")
-      #expect(Conference.find_by_title("outro titulo para teste")).to eq(@conference)
+      # expect(Conference.find_by_title("outro titulo para teste")).to eq(@conference)
     end
 
     it 'checks that a conference can be destroyed' do
